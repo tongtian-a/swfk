@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人管家 · sfwk</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- 登录 / 注册 -->
+  <section id="auth-view" class="auth-view hidden">
+    <div class="auth-card">
+      <h1>个人管家</h1>
+      <p class="subtitle">你的私人助理 · 由 Firebase 保护</p>
+      <input id="auth-email" type="email" placeholder="邮箱" autocomplete="email">
+      <input id="auth-password" type="password" placeholder="密码（至少 6 位）" autocomplete="current-password">
+      <div class="auth-buttons">
+        <button id="btn-login" class="primary">登录</button>
+        <button id="btn-signup">注册新账号</button>
+      </div>
+      <p id="auth-error" class="error"></p>
+      <p id="auth-hint" class="hint"></p>
+    </div>
+  </section>
+
+  <!-- 主界面 -->
+  <section id="app-view" class="app-view hidden">
+    <header class="topbar">
+      <span class="brand">个人管家</span>
+      <span id="user-email" class="user-email"></span>
+      <button id="btn-logout" class="ghost">退出</button>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="todos">✅ 任务</button>
+      <button class="tab" data-tab="notes">📝 备忘</button>
+      <button class="tab" data-tab="moods">💚 心情</button>
+    </nav>
+
+    <!-- 任务 -->
+    <div id="panel-todos" class="panel">
+      <div class="input-row">
+        <input id="todo-input" placeholder="要做什么？回车添加">
+        <button id="todo-add" class="primary">添加</button>
+      </div>
+      <ul id="todo-list" class="list"></ul>
+    </div>
+
+    <!-- 备忘 -->
+    <div id="panel-notes" class="panel hidden">
+      <div class="input-row">
+        <input id="note-title" placeholder="标题">
+        <button id="note-add" class="primary">保存</button>
+      </div>
+      <textarea id="note-content" placeholder="内容……"></textarea>
+      <ul id="note-list" class="list"></ul>
+    </div>
+
+    <!-- 心情 -->
+    <div id="panel-moods" class="panel hidden">
+      <div class="mood-picker">
+        <button class="mood" data-emoji="😄">😄</button>
+        <button class="mood" data-emoji="🙂">🙂</button>
+        <button class="mood" data-emoji="😐">😐</button>
+        <button class="mood" data-emoji="😔">😔</button>
+        <button class="mood" data-emoji="😠">😠</button>
+      </div>
+      <div class="input-row">
+        <input id="mood-input" placeholder="想说点什么？（可选）">
+        <button id="mood-add" class="primary">记录</button>
+      </div>
+      <ul id="mood-list" class="list"></ul>
+    </div>
+  </section>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

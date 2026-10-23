@@ -1,0 +1,11 @@
+# 密钥：绝不入库
+genkit/.env
+**/.env
+
+# 依赖
+genkit/node_modules/
+
+# Python / 会话产物
+__pycache__/
+*.pyc
+verify_output/

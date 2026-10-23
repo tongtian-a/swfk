@@ -1,0 +1,96 @@
+:root {
+  --bg: #10141c;
+  --panel: #1a2130;
+  --card: #222b3e;
+  --text: #e8ecf4;
+  --muted: #8b96ab;
+  --accent: #5b9dff;
+  --danger: #ff6b6b;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", "Microsoft YaHei", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.hidden { display: none !important; }
+
+/* ---------- 登录 ---------- */
+.auth-view {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 100vh; padding: 20px;
+}
+.auth-card {
+  background: var(--panel); border-radius: 16px;
+  padding: 40px 36px; width: 100%; max-width: 380px;
+  display: flex; flex-direction: column; gap: 14px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.45);
+}
+.auth-card h1 { font-size: 26px; text-align: center; }
+.subtitle { color: var(--muted); text-align: center; font-size: 14px; }
+.auth-card input {
+  background: var(--card); border: 1px solid transparent; border-radius: var(--radius);
+  padding: 12px 14px; color: var(--text); font-size: 15px; outline: none;
+}
+.auth-card input:focus { border-color: var(--accent); }
+.auth-buttons { display: flex; gap: 10px; }
+.error { color: var(--danger); font-size: 13px; min-height: 18px; }
+.hint { color: var(--muted); font-size: 12px; line-height: 1.6; }
+
+/* ---------- 按钮 ---------- */
+button {
+  background: var(--card); color: var(--text);
+  border: none; border-radius: var(--radius);
+  padding: 11px 16px; font-size: 14px; cursor: pointer;
+  transition: filter .15s ease;
+}
+button:hover { filter: brightness(1.15); }
+button.primary { background: var(--accent); color: #fff; }
+button.ghost { background: transparent; color: var(--muted); }
+
+/* ---------- 主界面 ---------- */
+.topbar {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 22px; background: var(--panel);
+}
+.brand { font-weight: 700; font-size: 17px; }
+.user-email { color: var(--muted); font-size: 13px; flex: 1; overflow: hidden; text-overflow: ellipsis; }
+
+.tabs { display: flex; gap: 8px; padding: 14px 22px 0; }
+.tab.active { background: var(--accent); color: #fff; }
+
+.panel { padding: 16px 22px 40px; max-width: 680px; }
+
+.input-row { display: flex; gap: 10px; margin-bottom: 14px; }
+.input-row input { flex: 1; }
+input, textarea {
+  background: var(--card); border: 1px solid transparent; border-radius: var(--radius);
+  padding: 11px 14px; color: var(--text); font-size: 14px; outline: none;
+  font-family: inherit;
+}
+input:focus, textarea:focus { border-color: var(--accent); }
+textarea {
+  width: 100%; min-height: 90px; resize: vertical; margin-bottom: 14px;
+}
+
+.list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.list li {
+  background: var(--panel); border-radius: var(--radius);
+  padding: 12px 14px; display: flex; align-items: flex-start; gap: 10px;
+}
+.list li .grow { flex: 1; min-width: 0; }
+.list li .title { font-weight: 600; margin-bottom: 2px; }
+.list li .body { color: var(--muted); font-size: 13px; white-space: pre-wrap; word-break: break-word; }
+.list li .meta { color: var(--muted); font-size: 11px; margin-top: 4px; }
+.list li.done .title { text-decoration: line-through; color: var(--muted); }
+.list li button { padding: 6px 10px; font-size: 12px; }
+.list .empty { color: var(--muted); text-align: center; padding: 30px 0; background: none; }
+
+.mood-picker { display: flex; gap: 10px; margin-bottom: 12px; }
+.mood { font-size: 24px; padding: 8px 12px; }
+.mood.selected { outline: 2px solid var(--accent); }
